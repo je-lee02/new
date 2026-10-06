@@ -1,115 +1,212 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026년 청년 마음건강 자격검정 시험</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>정신건강고사 시험장 · 광명시정신건강복지센터</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f8fafc;--card:#ffffff;--p:#2563eb;--p-h:#1d4ed8;--txt:#0f172a;
-  --mut:#64748b;--border:#e2e8f0;--radius:12px;--shadow:0 4px 6px -1px rgba(0,0,0,0.05);
+  --paper:#ffffff; --desk:#e9ecef; --ink:#000000; --ink-2:#3d3d3d; --rule:#000000;
+  --soft:#f3f3f3; --red:#d6261c; --red-soft:rgba(214,38,28,.08);
+  --serif:"Nanum Myeongjo","Batang","AppleMyungjo","Noto Serif KR",serif;
+  --sans:"Nanum Gothic","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  box-sizing:border-box;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;padding:20px 12px}
-.wrap{max-width:680px;margin:0 auto}
-header{text-align:center;margin-bottom:24px;background:var(--card);padding:24px 16px;border-radius:var(--radius);box-shadow:var(--shadow)}
-h1{font-size:20px;color:var(--p);margin-bottom:8px;font-weight:700}
-header p{font-size:14px;color:var(--mut)}
-.sec{background:var(--card);border-radius:var(--radius);padding:20px 16px;margin-bottom:20px;box-shadow:var(--shadow)}
-.sec-title{font-size:16px;font-weight:700;margin-bottom:12px;border-bottom:2px solid var(--border);padding-bottom:8px;color:var(--p)}
-.field{margin-bottom:16px}
-.field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
-.req{color:#ef4444}
-input[type="text"],input[type="tel"]{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px}
-input[type="text"]:focus,input[type="tel"]:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 3px rgba(37,99,235,0.1)}
-.radios{display:flex;gap:12px;flex-wrap:wrap}
-.radio-lbl{display:inline-flex;align-items:center;gap:6px;font-size:14px;cursor:pointer}
-.consent-box{background:#f1f5f9;padding:12px;border-radius:6px;font-size:12px;color:var(--mut);max-height:100px;overflow-y:auto;margin-bottom:8px;line-height:1.4}
-.q{background:var(--card);border-radius:var(--radius);padding:20px 16px;margin-bottom:16px;box-shadow:var(--shadow)}
-.q h3{font-size:15px;line-height:1.5;margin-bottom:12px;word-break:keep-all}
-.q h3 .no{color:var(--p);font-weight:700}
-.q h3 .pts{font-size:12px;color:var(--mut);font-weight:normal;margin-left:4px}
-.box{background:#f8fafc;border:1px dashed var(--border);padding:12px;border-radius:6px;font-size:13px;margin-bottom:12px}
-.opts{list-style:none}
-.opts li{margin-bottom:8px}
-.opt{width:100%;text-align:left;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:#fff;font-size:13.5px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;line-height:1.4}
-.opt:hover{border-color:var(--p);background:#f0f7ff}
-.opt[aria-pressed="true"]{border-color:var(--p);background:#eff6ff;color:var(--p);font-weight:600}
-.opt .mark{font-weight:bold;color:var(--mut);flex-shrink:0}
-.opt[aria-pressed="true"] .mark{color:var(--p)}
-.submit-btn{width:100%;background:var(--p);color:#fff;border:none;padding:14px;border-radius:var(--radius);font-size:16px;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
-.submit-btn:hover{background:var(--p-h)}
-.submit-btn:disabled{background:var(--mut);cursor:not-allowed}
-#err{color:#ef4444;font-size:13px;text-align:center;margin-top:8px;font-weight:600}
-#done{display:none;background:var(--card);border-radius:var(--radius);padding:40px 20px;text-align:center;box-shadow:var(--shadow)}
-#done.show{display:block}
-#done h2{color:var(--p);margin-bottom:8px}
-#done p{color:var(--mut);font-size:14px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.75;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+
+.sheet{background:var(--paper);max-width:980px;margin:24px auto;padding:40px 44px 48px;box-shadow:0 1px 0 rgba(0,0,0,.08),0 8px 30px rgba(0,0,0,.08)}
+@media (max-width:640px){.sheet{margin:0;padding:24px 18px 36px;box-shadow:none}}
+
+/* header */
+.kicker{text-align:center;font-family:var(--sans);font-weight:700;font-size:clamp(15px,2.4vw,21px);letter-spacing:-.01em;margin:0}
+.titlerow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin:10px 0 6px}
+.period{justify-self:start;border:1.5px solid var(--rule);border-radius:999px;padding:2px 14px;font-family:var(--serif);font-weight:800;font-size:clamp(14px,2vw,18px)}
+h1{margin:0;font-family:var(--sans);font-weight:800;font-size:clamp(34px,7vw,58px);letter-spacing:.12em;line-height:1.2;text-align:center}
+.type{justify-self:end;border:2px solid var(--rule);border-radius:8px;padding:2px 10px;font-family:var(--sans);font-weight:800;font-size:clamp(15px,2.2vw,22px);box-shadow:2px 2px 0 var(--rule)}
+.headrule{border:0;border-top:2px solid var(--rule);margin:8px 0 22px}
+
+.notice{border:1.5px solid var(--rule);padding:14px 20px;margin:0 0 18px;font-size:15px}
+.notice p{margin:4px 0;padding-left:1.4em;text-indent:-1.4em}
+.notice p::before{content:"○ "}
+
+.elective{border:1.5px solid var(--rule);padding:18px 20px 16px;margin:0 0 30px;display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center}
+.elective h2{margin:0 0 6px;font-family:var(--sans);font-size:17px;font-weight:800}
+.elective h2 small{font-weight:400;font-size:15px}
+.elective ul{margin:0;padding:0;list-style:none;font-size:15px}
+.elective li{padding-left:1.4em;text-indent:-1.4em}
+.elective li::before{content:"○ "}
+.elective a{color:inherit;font-weight:700}
+@media (max-width:560px){.elective{grid-template-columns:1fr}.elective img{width:130px;margin:0 auto}}
+
+.qs{columns:2;column-gap:56px;column-rule:1.5px solid var(--rule)}
+@media (max-width:760px){.qs{columns:1}}
+.q{break-inside:avoid;margin:0 0 40px;position:relative}
+.q h3{margin:0 0 12px;font-weight:400;font-size:16px;padding-left:1.7em;text-indent:-1.7em;line-height:1.7}
+.q .no{font-family:var(--sans);font-weight:800;font-size:19px;position:relative;display:inline-block;text-indent:0;min-width:1.4em}
+.q .pts{white-space:nowrap}
+.q u{text-underline-offset:3px;text-decoration-thickness:1.5px;font-weight:800}
+.box{border:1.2px solid var(--rule);padding:10px 14px;margin:0 0 14px;font-size:15px}
+.box p{margin:2px 0;padding-left:1.4em;text-indent:-1.4em}
+.box .center{text-align:center;text-indent:0;padding:0}
+
+.opts{list-style:none;margin:0;padding:0 0 0 .3em}
+.opt{display:flex;gap:8px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;color:var(--ink);font:inherit;font-size:15.5px;line-height:1.7;padding:5px 8px;margin:1px 0;border-radius:6px;cursor:pointer}
+.opt:hover{background:var(--soft)}
+.mark{flex:none;width:1.45em;height:1.45em;margin-top:.15em;border:1.2px solid var(--ink);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:.8em;font-weight:700;line-height:1}
+.opt[aria-pressed="true"] .mark{background:var(--ink);color:var(--paper)}
+.opt[aria-pressed="true"]{font-weight:700}
+
+.essay-ans{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:6px;font-size:15.5px}
+.essay-ans input,.rx textarea,.rx input{border:0;border-bottom:1.5px solid var(--ink);background:transparent;color:var(--ink);font:inherit;padding:4px 6px}
+.essay-ans input{width:9em;text-align:center}
+.rx{display:grid;gap:12px;margin-top:4px}
+.rx label{font-size:15px;font-weight:700}
+.rx label::before{content:"■ "}
+.rx input,.rx textarea{width:100%;border:1.2px solid var(--ink);border-radius:0;padding:8px 10px;font-size:15px;margin-top:4px}
+.rx textarea{min-height:92px;resize:vertical}
+input:focus-visible,textarea:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+
+.submit{margin:12px 0 0;display:flex;flex-direction:column;align-items:center;gap:10px}
+.btn{font-family:var(--sans);font-weight:800;font-size:17px;padding:14px 30px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;border-radius:0}
+.btn:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.hint{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0;text-align:center}
+
+.info{border:1.5px solid var(--rule);margin:0 0 18px}
+.row{display:grid;grid-template-columns:150px 1fr;border-bottom:1.2px solid var(--rule)}
+.row:last-child{border-bottom:0}
+.row>.k{padding:12px 14px;border-right:1.2px solid var(--rule);font-family:var(--sans);font-weight:700;display:flex;align-items:center}
+.row>.v{padding:8px 12px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.row input[type=text],.row input[type=tel]{width:100%;border:0;background:transparent;color:var(--ink);font:inherit;padding:4px 0}
+.row input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.radio{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:15.5px}
+.radio input{width:18px;height:18px;accent-color:var(--ink)}
+@media (max-width:560px){.row{grid-template-columns:1fr}.row>.k{border-right:0;border-bottom:1.2px dashed var(--rule);padding:8px 12px}}
+.consent{border:1.5px solid var(--rule);padding:14px 18px;margin:0 0 18px;font-size:14.5px;line-height:1.7}
+.consent h2{margin:0 0 8px;font-family:var(--sans);font-size:16px}
+.consent dl{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin:0 0 8px}
+.consent dt{font-weight:700}
+.consent dd{margin:0}
+.consent .choice{display:flex;gap:22px;flex-wrap:wrap;margin-top:10px;font-family:var(--sans);font-weight:700}
+.err{color:var(--red);font-family:var(--sans);font-size:14px;font-weight:700;text-align:center;margin:0}
+.done{display:none;margin:36px auto 0;max-width:560px;border:2px solid var(--ink);padding:26px 24px 22px;text-align:center}
+.done.show{display:block}
+.done h2{margin:0 0 8px;font-family:var(--sans);font-weight:800;font-size:22px}
+.done p{margin:6px 0;font-size:15.5px}
+.done a{color:inherit;font-weight:700}
+.btn[disabled]{opacity:.55;cursor:progress}
+.rxcard{margin:20px 0 0;border:1.2px dashed var(--ink);padding:14px 16px;text-align:left;font-size:15px}
+.rxcard h3{margin:0 0 6px;font-family:var(--sans);font-size:15px}
+.rxcard p{margin:2px 0}
+.foot{text-align:center;font-family:var(--sans);font-weight:800;font-size:clamp(18px,3vw,24px);margin:40px 0 0}
+.pageno{display:block;margin:6px auto 0;font-family:var(--serif);font-size:13px;font-weight:400;color:var(--ink-2)}
 </style>
 </head>
 <body>
+<main class="sheet" id="sheet">
+  <p class="kicker">2026년도 광명시정신건강복지센터 문제지</p>
+  <div class="titlerow">
+    <span class="period">제 1 교시</span>
+    <h1>정신건강 영역</h1>
+    <span class="type">홀수형</span>
+  </div>
+  <hr class="headrule">
 
-<div class="wrap">
-  <header>
-    <h1>2026년 청년 마음건강 자격검정 시험</h1>
-    <p>광명시 청년들의 마음건강에 대한 상식과 이해를 위한 검정시험입니다.</p>
-  </header>
+  <form id="exam" novalidate>
+  <div class="info">
+    <div class="row"><label class="k" for="name">성명</label><div class="v"><input type="text" id="name" maxlength="20" autocomplete="name" placeholder="실명을 적어주세요" required></div></div>
+    <div class="row"><label class="k" for="birth">출생연도</label><div class="v"><input type="text" id="birth" inputmode="numeric" maxlength="4" autocomplete="bday-year" placeholder="예: 1998" required style="max-width:8em"><span style="font-size:15.5px">년생</span></div></div>
+    <div class="row"><span class="k" id="liveLbl">거주 지역</span><div class="v" role="radiogroup" aria-labelledby="liveLbl" style="gap:8px 18px;padding:10px 12px">
+      <label class="radio"><input type="radio" name="live" value="광명동" required> 광명동</label>
+      <label class="radio"><input type="radio" name="live" value="철산동"> 철산동</label>
+      <label class="radio"><input type="radio" name="live" value="소하동"> 소하동</label>
+      <label class="radio"><input type="radio" name="live" value="하안동"> 하안동</label>
+      <label class="radio"><input type="radio" name="live" value="일직동"> 일직동</label>
+      <label class="radio"><input type="radio" name="live" value="광명시 외"> 광명시 외</label>
+      <label class="radio"><input type="radio" name="live" value="광명 소재 직장인"> 광명 소재 직장인</label></div></div>
+    <div class="row"><label class="k" for="phone">핸드폰 번호</label><div class="v"><input type="tel" id="phone" inputmode="numeric" autocomplete="tel" maxlength="13" placeholder="010-0000-0000" required></div></div>
+  </div>
 
-  <form id="exam">
-    <!-- 개인정보 입력 -->
-    <div class="sec">
-      <div class="sec-title">응시자 정보</div>
-      <div class="field">
-        <label for="name">성명 <span class="req">*</span></label>
-        <input type="text" id="name" required placeholder="홍길동">
-      </div>
-      <div class="field">
-        <label for="birth">출생연도 <span class="req">*</span></label>
-        <input type="text" id="birth" required placeholder="예: 1998">
-      </div>
-      <div class="field">
-        <label>거주 지역 <span class="req">*</span></label>
-        <div class="radios">
-          <label class="radio-lbl"><input type="radio" name="live" value="광명시" required> 광명시</label>
-          <label class="radio-lbl"><input type="radio" name="live" value="타지역"> 타지역</label>
-        </div>
-      </div>
-      <div class="field">
-        <label for="phone">전화번호 <span class="req">*</span></label>
-        <input type="tel" id="phone" required placeholder="010-0000-0000">
-      </div>
-      <div class="field">
-        <label>개인정보 수집·이용 동의 <span class="req">*</span></label>
-        <div class="consent-box">
-          수집 목적: 2026 청년 마음건강 자격검정 시험 참여 확인 및 결과 안내<br>
-          수집 항목: 성명, 출생연도, 거주지역, 전화번호<br>
-          보유 및 이용 기간: 목적 달성 후 지체 없이 파기
-        </div>
-        <div class="radios">
-          <label class="radio-lbl"><input type="radio" name="consent" value="동의" required> 동의함</label>
-          <label class="radio-lbl"><input type="radio" name="consent" value="미동의"> 동의하지 않음</label>
-        </div>
-      </div>
+  <section class="consent" aria-labelledby="consentTitle">
+    <h2 id="consentTitle">개인정보 수집·이용 동의</h2>
+    <p style="margin:0 0 8px">광명시정신건강복지센터는 이벤트 운영을 위해 아래와 같이 개인정보를 수집·이용합니다.</p>
+    <dl>
+      <dt>수집 항목</dt><dd>성명, 출생연도, 핸드폰 번호, 거주 지역(광명 소재 직장 여부 포함)</dd>
+      <dt>수집 목적</dt><dd>이벤트 참여 확인, 당첨자 선정 및 경품(기프티콘) 발송</dd>
+      <dt>보유 기간</dt><dd>경품 발송 완료 후 즉시 파기</dd>
+    </dl>
+    <p style="margin:0">개인정보 수집·이용에 동의하지 않을 권리가 있으며, 동의하지 않으면 이벤트 참여 및 경품 수령이 제한됩니다.</p>
+    <div class="choice" role="radiogroup" aria-label="개인정보 수집·이용 동의 여부">
+      <label class="radio"><input type="radio" name="consent" value="동의" required> 동의합니다</label>
+      <label class="radio"><input type="radio" name="consent" value="미동의"> 동의하지 않습니다</label>
     </div>
+  </section>
 
-    <!-- 문제 영역 -->
-    <div id="qs"></div>
+  <div class="notice">
+    <p>문항을 누르면 답이 표시되고, 다시 누르면 다른 답으로 바꿀 수 있습니다.</p>
+    <p>문항에 따라 배점이 다르니, 각 물음의 끝에 표시된 배점을 참고하시오.</p>
+    <p>서술형 문항은 직원의 평가 기준 및 작성 충실도에 따라 점수를 차등 부여하오니 성실히 작성하시오.</p>
+    <p>정답과 결과는 추후 광명시정신건강복지센터 청년 인스타그램에서 공개합니다.</p>
+  </div>
 
-    <button type="submit" class="submit-btn" id="submitBtn">답안 제출하기</button>
-    <div id="err" role="alert"></div>
+  <section class="elective" aria-label="선택과목">
+    <div>
+      <h2>선택과목 <small>········ 청년 정신건강 마스코트 ‘고민 먹는 하마’ 네이밍 이벤트</small></h2>
+      <ul>
+        <li>광명시정신건강복지센터 청년 인스타그램 <a href="https://www.instagram.com/gmmh_youth_info/" target="_blank" rel="noopener">@gmmh_youth_info</a> 팔로우</li>
+        <li>댓글로 하마 이름 + 이름을 지은 이유 작성하기</li>
+        <li>선정 기준: ‘좋아요’ 수 및 기관 직원 투표에 따른 심사 진행</li>
+        <li>포상 1: 이름이 선정된 참여자에게는 <b>배달의민족 3만원 기프티콘</b> 제공!</li>
+        <li>포상 2: 추첨을 통해 커피 기프티콘 제공!</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="qs" id="qs"></div>
+
+  <div class="submit">
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn" id="submitBtn" type="submit">답안 제출하기</button>
+    <p class="hint" id="hint" role="status" aria-live="polite"></p>
+  </div>
   </form>
 
-  <!-- 제출 완료 화면 -->
-  <div id="done" tabindex="-1">
-    <h2>제출이 완료되었습니다!</h2>
+  <section class="done" id="done" tabindex="-1">
+    <h2>답안이 제출되었습니다</h2>
     <p id="doneWho"></p>
-    <p style="margin-top:12px;">참여해 주셔서 감사합니다.</p>
-  </div>
-</div>
+    <p>정답과 결과는 <a href="https://www.instagram.com/gmmh_youth_info/" target="_blank" rel="noopener">@gmmh_youth_info</a>에서 공개돼요. 팔로우하고 기다려 주세요!</p>
+    <div class="rxcard" id="rxcard" hidden>
+      <h3>나만의 마음 약 처방전</h3>
+      <p><b>처방약</b> · <span id="rxName"></span></p>
+      <p><b>복용법</b> · <span id="rxHow"></span></p>
+    </div>
+    <p class="hint" style="margin-top:12px">힘들 때 꺼내 볼 수 있게 처방전을 캡처해 두세요.</p>
+  </section>
+
+  <p class="foot">광명시정신건강복지센터<span class="pageno">정신건강 영역 · 제 1 교시 · 홀수형</span></p>
+</main>
 
 <script>
-// 구글 앱스 스크립트 웹앱 URL
+/* ▼ 구글 Apps Script 웹 앱 URL */
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzu7emudYl_DhKpzcTE0tydStDtrpUbELxU7XwmQYK4o4JhyWfJ6-wDxT9JnR8Ew2QEXA/exec";
+
+// 객관식 문제 정답 표 (1번~10번)
+const CORRECT_ANSWERS = {
+  1: 2, // 2번
+  2: 3, // 3번
+  3: 3, // 3번
+  4: 5, // 5번
+  5: 4, // 4번
+  6: 3, // 3번
+  7: 1, // 1번
+  8: 1, // 1번
+  9: 4, // 4번
+  10: 1 // 1번
+};
 
 const Q = [
   {n:1, pts:7, ask:"다음 중 ‘정신건강의학과 진료 기록’과 ‘취업’의 관계에 대한 설명으로 <u>옳은</u> 것은?",
@@ -137,114 +234,138 @@ const Q = [
 
 const qs = document.getElementById("qs");
 const picks = {};
-const circ = ["①","②","③","④","⑤"];
+const circ = "①②③④⑤";
+function el(tag, cls, html){const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
 
-function el(tag, cls, html){
-  const e = document.createElement(tag); 
-  if(cls) e.className = cls; 
-  if(html != null) e.innerHTML = html; 
-  return e;
-}
-
-// 문제 생성
-Q.forEach(q => {
-  const art = el("article", "q"); 
-  art.id = "q" + q.n;
-  art.appendChild(el("h3", null, `<span class="no">${q.n}.</span> ${q.ask} <span class="pts">[${q.pts}점]</span>`));
-  
-  if(q.box) {
-    const boxEl = el("div", "box", q.box.map(b => `<p>${b}</p>`).join(""));
-    art.appendChild(boxEl);
-  }
-
-  const ul = el("ul", "opts");
-  q.opts.forEach((optText, idx) => {
-    const li = el("li");
-    const btn = el("button", "opt", `<span class="mark">${circ[idx]}</span><span>${optText}</span>`);
-    btn.type = "button";
-    btn.setAttribute("aria-pressed", "false");
-    
-    btn.addEventListener("click", () => {
-      ul.querySelectorAll(".opt").forEach(b => b.setAttribute("aria-pressed", "false"));
-      btn.setAttribute("aria-pressed", "true");
-      picks[q.n] = idx + 1;
-    });
-    
-    li.appendChild(btn);
-    ul.appendChild(li);
+Q.forEach(q=>{
+  const art = el("article","q"); art.id="q"+q.n;
+  art.appendChild(el("h3",null,`<span class="no">${q.n}.</span> ${q.ask} <span class="pts">[${q.pts}점]</span>`));
+  if(q.box){const b=el("div","box"); q.box.forEach(t=>b.appendChild(el("p",null,t))); art.appendChild(b);}
+  const ul = el("div","opts"); ul.setAttribute("role","group"); ul.setAttribute("aria-label",q.n+"번 보기");
+  q.opts.forEach((t,i)=>{
+    const b = el("button","opt"); b.type="button"; b.setAttribute("aria-pressed","false");
+    b.innerHTML = `<span class="mark" aria-hidden="true">${i+1}</span><span>${t}</span>`;
+    b.addEventListener("click",()=>{ picks[q.n]=i+1;
+      ul.querySelectorAll(".opt").forEach((o,j)=>o.setAttribute("aria-pressed", j===i?"true":"false")); updateHint(); });
+    ul.appendChild(b);
   });
-  
   art.appendChild(ul);
   qs.appendChild(art);
 });
 
-// 폼 제출
-const examForm = document.getElementById("exam");
-const submitBtn = document.getElementById("submitBtn");
-const errEl = document.getElementById("err");
-const doneEl = document.getElementById("done");
+// 서술형 1
+const e1 = el("article","q"); e1.id="e1";
+e1.innerHTML = `<h3><span class="no" style="font-size:16px">서술형 1.</span> 아래 [보기]에서 설명하고 있는 광명시정신건강복지센터의 사업 명칭을 작성하시오. <span class="pts">[10점]</span></h3>
+<div class="box"><p class="center">[보기]</p><p>1. 만 19~34세 대상</p><p>2. 매주 목요일 오후 청춘곳간에서 운영</p><p>3. TCI(기질 및 성격검사), 간이정신진단검사, 스트레스 검사 진행</p><p>4. 최대 3회기 상담</p></div>
+<div class="essay-ans">정답: 청년 마음건강검진 ‘<input id="essay1" aria-label="서술형 1 정답" autocomplete="off" maxlength="40">’</div>`;
+qs.appendChild(e1);
 
-examForm.addEventListener("submit", async function(e) {
-  e.preventDefault();
-  errEl.textContent = "";
+// 서술형 2
+const e2 = el("article","q"); e2.id="e2";
+e2.innerHTML = `<h3><span class="no" style="font-size:16px">서술형 2.</span> 마음이 유난히 지치거나 불안할 때, 마음을 다독여 줄 ‘나만의 마음 약 처방전’을 작성하시오. <span class="pts">[15점]</span></h3>
+<div class="box"><p class="center">[예시]</p><p style="text-indent:0;padding:0">■ 처방약 이름 (OO시럽, OO서방정, OO캡슐 등)<br>[ 그럴 수 있지 캡슐 ]</p><p style="text-indent:0;padding:0">■ 복용법 및 용법<br>[ 계획대로 하루를 보내지 못했을 때 자책 대신 ‘그럴 수 있지, 내일 하면 돼!’ 말해주기 (자기 전 1회 복용) ]</p></div>
+<div class="rx"><label for="rxN">처방약 이름</label><input id="rxN" autocomplete="off" maxlength="40" placeholder="예: 토닥토닥 시럽">
+<label for="rxH">복용법 및 용법</label><textarea id="rxH" maxlength="500" placeholder="언제, 어떻게 복용하나요?"></textarea></div>`;
+qs.appendChild(e2);
 
-  const name = document.getElementById("name").value.trim();
-  const birth = document.getElementById("birth").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const liveEl = document.querySelector('input[name="live"]:checked');
-  const consentEl = document.querySelector('input[name="consent"]:checked');
+const hint=document.getElementById("hint"), err=document.getElementById("err");
+function updateHint(){ hint.textContent = `객관식 ${Object.keys(picks).length} / ${Q.length}문항 선택함`; }
+updateHint();
 
-  if (!name || !birth || !phone || !liveEl || !consentEl) {
-    errEl.textContent = "개인정보 입력 및 동의 항목을 모두 작성해 주세요.";
-    return;
-  }
+const phone=document.getElementById("phone");
+phone.addEventListener("input",()=>{
+  const d=phone.value.replace(/\D/g,"").slice(0,11);
+  phone.value = d.length<4? d : d.length<8? d.slice(0,3)+"-"+d.slice(3) : d.slice(0,3)+"-"+d.slice(3,d.length-4)+"-"+d.slice(-4);
+});
 
-  if (consentEl.value !== "동의") {
-    errEl.textContent = "개인정보 수집·이용에 동의하셔야 제출할 수 있습니다.";
-    return;
-  }
+function fail(msg, focusEl){ err.textContent=msg; if(focusEl){ focusEl.scrollIntoView({behavior:"smooth",block:"center"}); setTimeout(()=>focusEl.focus({preventScroll:true}),300);} }
 
-  for (let i = 1; i <= Q.length; i++) {
-    if (!picks[i]) {
-      errEl.textContent = `${i}번 문항의 답을 선택해 주세요.`;
-      document.getElementById("q" + i).scrollIntoView({ behavior: "smooth" });
-      return;
+document.getElementById("exam").addEventListener("submit", async ev=>{
+  ev.preventDefault(); err.textContent="";
+  const f=ev.target;
+  const name=document.getElementById("name").value.trim();
+  const live=(f.querySelector('input[name=live]:checked')||{}).value;
+  const digits=phone.value.replace(/\D/g,"");
+  const consent=(f.querySelector('input[name=consent]:checked')||{}).value;
+  
+  if(!name) return fail("성명을 적어주세요.", document.getElementById("name"));
+  const birth=document.getElementById("birth").value.replace(/\D/g,"");
+  if(!(birth.length===4 && +birth>=1930 && +birth<=new Date().getFullYear())) return fail("출생연도를 4자리로 적어주세요. (예: 1998)", document.getElementById("birth"));
+  if(!live) return fail("거주 지역을 선택해 주세요.", f.querySelector('input[name=live]'));
+  if(!/^01\d{8,9}$/.test(digits)) return fail("핸드폰 번호를 정확히 적어주세요. (예: 010-1234-5678)", phone);
+  if(!consent) return fail("개인정보 수집·이용 동의 여부를 선택해 주세요.", f.querySelector('input[name=consent]'));
+  if(consent!=="동의") return fail("개인정보 수집·이용에 동의해야 답안을 제출할 수 있어요.", f.querySelector('input[name=consent]'));
+
+  const missing=Q.filter(q=>!picks[q.n]).map(q=>q.n+"번");
+  const essay1=document.getElementById("essay1").value.trim();
+  const rxName=document.getElementById("rxN").value.trim(), rxHow=document.getElementById("rxH").value.trim();
+  if(!essay1) missing.push("서술형 1번");
+  if(!rxName||!rxHow) missing.push("서술형 2번");
+  if(missing.length && !confirm(`아직 답하지 않은 문항이 있어요 (${missing.join(", ")}). 이대로 제출할까요?`)) return;
+
+  // 객관식 자동 채점 (총 75점 만점 계산)
+  let objScore = 0;
+  Q.forEach(q => {
+    if (picks[q.n] === CORRECT_ANSWERS[q.n]) {
+      objScore += q.pts;
     }
+  });
+
+  // 서술형 1 정답 채점 (정답 예시: 청춘상담소 또는 마음건강검진 등 키워드 확인)
+  let essay1Score = 0;
+  if (essay1.includes("청춘상담소") || essay1.includes("마음건강")) {
+    essay1Score = 10;
   }
 
-  submitBtn.disabled = true;
-  submitBtn.textContent = "제출 중...";
+  const btn=document.getElementById("submitBtn"); btn.disabled=true; btn.textContent="제출하는 중…";
+  
+  // 현재 제출 날짜/시간 생성
+  const now = new Date();
+  const timestamp = now.getFullYear() + "-" + 
+                    String(now.getMonth() + 1).padStart(2, '0') + "-" + 
+                    String(now.getDate()).padStart(2, '0') + " " + 
+                    String(now.getHours()).padStart(2, '0') + ":" + 
+                    String(now.getMinutes()).padStart(2, '0') + ":" + 
+                    String(now.getSeconds()).padStart(2, '0');
 
   const payload = {
+    timestamp: timestamp,
     name: name,
     birth: birth,
-    live: liveEl.value,
-    phone: phone,
-    consent: consentEl.value,
+    live: live,
+    phone: digits.replace(/^(\d{3})(\d{3,4})(\d{4})$/,"$1-$2-$3"),
+    consent: consent,
+    objScore: objScore,           // 객관식 점수 (75점 만점)
+    essay1Score: essay1Score,     // 서술형 1 점수 (10점 만점)
+    totalScore: objScore + essay1Score, // 자동 채점 총점 (85점 만점 + 서술형2 수동채점 15점)
     answers: JSON.stringify(picks),
-    timestamp: new Date().toLocaleString("ko-KR")
+    essay1: essay1,
+    rxName: rxName,
+    rxHow: rxHow
   };
 
-  try {
-    await fetch(SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      body: new URLSearchParams(payload).toString()
+  try{
+    await fetch(SCRIPT_URL,{
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(payload)
     });
-
-    examForm.style.display = "none";
-    doneEl.classList.add("show");
-    document.getElementById("doneWho").textContent = `${name}님의 답안이 정상적으로 전송되었습니다.`;
-    doneEl.focus();
-
-  } catch (error) {
-    console.error("전송 에러:", error);
-    errEl.textContent = "제출 중 오류가 발생했습니다. 다시 시도해 주세요.";
-    submitBtn.disabled = false;
-    submitBtn.textContent = "답안 제출하기";
+    
+    f.style.display="none";
+    document.getElementById("doneWho").textContent = name+" 님, 참여해 주셔서 고마워요.";
+    if(rxName&&rxHow){ 
+      document.getElementById("rxName").textContent=rxName; 
+      document.getElementById("rxHow").textContent=rxHow; 
+      document.getElementById("rxcard").hidden=false; 
+    }
+    const done=document.getElementById("done"); 
+    done.classList.add("show"); 
+    done.focus(); 
+    done.scrollIntoView({block:"center"});
+  }catch(e){
+    btn.disabled=false; btn.textContent="답안 제출하기";
+    fail("제출하지 못했어요. 인터넷 연결을 확인한 뒤 다시 눌러 주세요.");
   }
 });
 </script>
