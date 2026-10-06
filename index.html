@@ -191,23 +191,13 @@ input:focus-visible,textarea:focus-visible{outline:2px solid var(--ink);outline-
 </main>
 
 <script>
-/* ▼ 구글 Apps Script 웹 앱 URL */
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw21xtPb1uw7OC4HlsWgKRu29wn4bKGybKzT0qOZAgWjs62j2qr2PBhfY2aB92SXWRZIw/exec
+/* ▼ 새로 발급받으신 웹 앱 URL 적용 완료 */
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwFc-ZKAum67x45y2_XVVu87aZ0P2khyYQCywu_rui7JpRRxbCX0y6Ju0SXZxF5HRbmLQ/exec";
 
-";
-
-// 객관식 문제 정답 표 (1번~10번)
+// 객관식 정답표 (1~10번)
 const CORRECT_ANSWERS = {
-  1: 2, // 2번
-  2: 3, // 3번
-  3: 3, // 3번
-  4: 5, // 5번
-  5: 4, // 4번
-  6: 3, // 3번
-  7: 1, // 1번
-  8: 1, // 1번
-  9: 4, // 4번
-  10: 1 // 1번
+  1: 2, 2: 3, 3: 3, 4: 5, 5: 4,
+  6: 3, 7: 1, 8: 1, 9: 4, 10: 1
 };
 
 const Q = [
@@ -236,7 +226,6 @@ const Q = [
 
 const qs = document.getElementById("qs");
 const picks = {};
-const circ = "①②③④⑤";
 function el(tag, cls, html){const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
 
 Q.forEach(q=>{
@@ -286,13 +275,13 @@ document.getElementById("exam").addEventListener("submit", async ev=>{
   ev.preventDefault(); err.textContent="";
   const f=ev.target;
   const name=document.getElementById("name").value.trim();
+  const birth=document.getElementById("birth").value.trim();
   const live=(f.querySelector('input[name=live]:checked')||{}).value;
   const digits=phone.value.replace(/\D/g,"");
   const consent=(f.querySelector('input[name=consent]:checked')||{}).value;
   
   if(!name) return fail("성명을 적어주세요.", document.getElementById("name"));
-  const birth=document.getElementById("birth").value.replace(/\D/g,"");
-  if(!(birth.length===4 && +birth>=1930 && +birth<=new Date().getFullYear())) return fail("출생연도를 4자리로 적어주세요. (예: 1998)", document.getElementById("birth"));
+  if(!birth || birth.length!==4 || isNaN(birth)) return fail("출생연도를 4자리 숫자로 적어주세요. (예: 1998)", document.getElementById("birth"));
   if(!live) return fail("거주 지역을 선택해 주세요.", f.querySelector('input[name=live]'));
   if(!/^01\d{8,9}$/.test(digits)) return fail("핸드폰 번호를 정확히 적어주세요. (예: 010-1234-5678)", phone);
   if(!consent) return fail("개인정보 수집·이용 동의 여부를 선택해 주세요.", f.querySelector('input[name=consent]'));
@@ -305,7 +294,7 @@ document.getElementById("exam").addEventListener("submit", async ev=>{
   if(!rxName||!rxHow) missing.push("서술형 2번");
   if(missing.length && !confirm(`아직 답하지 않은 문항이 있어요 (${missing.join(", ")}). 이대로 제출할까요?`)) return;
 
-  // 객관식 자동 채점 (총 75점 만점 계산)
+  // 객관식 자동 채점
   let objScore = 0;
   Q.forEach(q => {
     if (picks[q.n] === CORRECT_ANSWERS[q.n]) {
@@ -313,7 +302,7 @@ document.getElementById("exam").addEventListener("submit", async ev=>{
     }
   });
 
-  // 서술형 1 정답 채점 (정답 예시: 청춘상담소 또는 마음건강검진 등 키워드 확인)
+  // 서술형 1 키워드 자동 채점
   let essay1Score = 0;
   if (essay1.includes("청춘상담소") || essay1.includes("마음건강")) {
     essay1Score = 10;
@@ -321,7 +310,7 @@ document.getElementById("exam").addEventListener("submit", async ev=>{
 
   const btn=document.getElementById("submitBtn"); btn.disabled=true; btn.textContent="제출하는 중…";
   
-  // 현재 제출 날짜/시간 생성
+  // 한국 표준시 응시 일시 생성
   const now = new Date();
   const timestamp = now.getFullYear() + "-" + 
                     String(now.getMonth() + 1).padStart(2, '0') + "-" + 
@@ -337,9 +326,9 @@ document.getElementById("exam").addEventListener("submit", async ev=>{
     live: live,
     phone: digits.replace(/^(\d{3})(\d{3,4})(\d{4})$/,"$1-$2-$3"),
     consent: consent,
-    objScore: objScore,           // 객관식 점수 (75점 만점)
-    essay1Score: essay1Score,     // 서술형 1 점수 (10점 만점)
-    totalScore: objScore + essay1Score, // 자동 채점 총점 (85점 만점 + 서술형2 수동채점 15점)
+    objScore: objScore,
+    essay1Score: essay1Score,
+    totalScore: objScore + essay1Score,
     answers: JSON.stringify(picks),
     essay1: essay1,
     rxName: rxName,
@@ -350,8 +339,8 @@ document.getElementById("exam").addEventListener("submit", async ev=>{
     await fetch(SCRIPT_URL,{
       method:"POST",
       mode:"no-cors",
-      headers:{"Content-Type":"text/plain;charset=utf-8"},
-      body:JSON.stringify(payload)
+      headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body:new URLSearchParams(payload).toString()
     });
     
     f.style.display="none";
